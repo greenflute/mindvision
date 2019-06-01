@@ -453,7 +453,7 @@ public class viewer : MonoBehaviour {
 	}
 	bool is_visible(GameObject element)
 	{
-		if(element.renderer.isVisible==true)
+		if(element.GetComponent<Renderer>().isVisible==true)
 			return true;
 		else
 			return false;
@@ -566,9 +566,9 @@ public class viewer : MonoBehaviour {
 		{
 			GameObject torch = new GameObject();
 			torch.AddComponent<Light>();
-			torch.light.color = Color.yellow;
-			torch.light.type = LightType.Spot;
-			torch.light.intensity = 10;
+			torch.GetComponent<Light>().color = Color.yellow;
+			torch.GetComponent<Light>().type = LightType.Spot;
+			torch.GetComponent<Light>().intensity = 10;
 			torch.tag="torch";
 			torch.transform.parent = element.transform;
 			light_position (element);
@@ -596,9 +596,9 @@ public class viewer : MonoBehaviour {
 				{
 					GameObject torch = new GameObject();
 					torch.AddComponent<Light>();
-					torch.light.color = Color.yellow;
-					torch.light.type = LightType.Spot;
-					torch.light.intensity = 10;
+					torch.GetComponent<Light>().color = Color.yellow;
+					torch.GetComponent<Light>().type = LightType.Spot;
+					torch.GetComponent<Light>().intensity = 10;
 					torch.tag="torch";
 					torch.transform.parent = element.transform;
 					light_position (element);

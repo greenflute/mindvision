@@ -51,9 +51,10 @@ public class export : MonoBehaviour {
 		// Create a file to write to.
 		List<LineRenderer> lines = viewer.getRelations ();
 		using (StreamWriter sw = File.CreateText(relationsfile)) {
-			foreach (LineRenderer line in lines) {
-
-				sw.WriteLine (obj.GetComponentInChildren<vars>().Id+";"+obj.GetComponentInChildren<TextMesh>().text+";"+obj.transform.position.x+";"+obj.transform.position.y+";"+obj.transform.position.z+";"+obj.GetComponentInChildren<vars>().Type);
+            foreach (LineRenderer line in lines){
+                foreach (GameObject obj in coreelements) { 
+                    sw.WriteLine(obj.GetComponentInChildren<vars>().Id + ";" + obj.GetComponentInChildren<TextMesh>().text + ";" + obj.transform.position.x + ";" + obj.transform.position.y + ";" + obj.transform.position.z + ";" + obj.GetComponentInChildren<vars>().Type);
+                }
 			}
 		}
 	}
